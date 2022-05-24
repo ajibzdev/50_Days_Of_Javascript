@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Shizuru&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background: #333;
+  color: #222;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  background: #fafafa;
+  transform-origin: top left;
+  transition: all 0.5s linear;
+
+  width: 100vw;
+  height: 100vh;
+  padding: 50px;
+}
+
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  cursor: pointer;
+  position: fixed;
+  top: -120px;
+  left: -120px;
+}
+
+.circle {
+  background: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  transition: all 0.5s linear;
+}
+
+.circle button {
+  position: absolute;
+  top: 50%;
+  left: 66%;
+  height: 100px;
+
+  color: white;
+  font-size: 1.4em;
+  background: transparent;
+  border: 0;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  top: 50%;
+}
+
+.circle button#close {
+  top: 65%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.content img {
+  max-width: 100%;
+}
+
+.content p {
+  margin: 10px 0;
+}

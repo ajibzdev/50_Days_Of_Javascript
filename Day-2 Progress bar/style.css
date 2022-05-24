@@ -1,0 +1,90 @@
+@import url("https://googlefontapis.com/search?font-family=Poppins&display=swap");
+
+:root {
+  --line-fill: blue;
+  --line-empty: #f6f7fb;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: red;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  width: 25rem;
+  max-width: 100%;
+  position: relative;
+}
+
+.btn {
+  margin: 3rem 0 0 2rem;
+  background: var(--line-fill);
+  padding: 0.8rem 2rem;
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:disabled {
+  background: var(--line-empty);
+  cursor: not-allowed;
+}
+
+.circle {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: gainsboro;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.4s ease;
+}
+
+.circle.active {
+  border: 2px solid black;
+}
+
+.progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(0);
+  width: 0%;
+  height: 4px;
+  z-index: -1;
+  background: var(--line-fill);
+  transition: all 0.4s ease;
+}
+
+.progress-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(0);
+  width: 100%;
+  height: 4px;
+  z-index: -1;
+  background: var(--line-empty);
+}

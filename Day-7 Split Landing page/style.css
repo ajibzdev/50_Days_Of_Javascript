@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --left-bg-color: rgba(87, 84, 236, 0.7);
+  --right-bg-color: rgba(43, 43, 43, 0.7);
+
+  --left-btn: rgba(87, 84, 236, 1);
+  --right-btn: rgba(43, 43, 43, 0.7);
+
+  --content-width: 75%;
+  --other-width: calc(100% - 75%);
+  --speed: 1000ms;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 4rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%);
+  color: white;
+  white-space: nowrap;
+}
+
+.btn {
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 15rem;
+  border: #fff solid 0.2rem;
+  padding: 1.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+
+  display: grid;
+  place-items: center;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.split {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.split::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.split.left {
+  left: 0;
+  transform-origin: left;
+
+  background: url("./img/ps.jpg") no-repeat center center/cover;
+}
+
+.split.left::before {
+  background: var(--left-bg-color);
+}
+
+.split.left .btn:hover {
+  background: var(--left-btn);
+  border: var(--left-btn);
+}
+
+.split.right {
+  right: 0;
+  transform-origin: right;
+
+  background: url("./img/xbox.jpg") no-repeat center center/cover;
+}
+
+.split.right::before {
+  background: var(--right-bg-color);
+}
+
+.split.right .btn:hover {
+  background: var(--right-btn);
+  border: var(--right-btn);
+}
+
+.hover-left .left {
+  width: var(--content-width);
+}
+
+.hover-left .right {
+  width: var(--other-width);
+  transform: scaleX(0.9);
+}
+
+.hover-right .right {
+  width: var(--content-width);
+}
+
+.hover-right .left {
+  width: var(--other-width);
+  transform: scaleX(0.9);
+}
+
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before {
+  transition: all var(--speed);
+}
